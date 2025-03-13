@@ -163,9 +163,36 @@ def hash_password_hack(input_file_name, output_file_name):
 
 ---
 
+### Example Usage
+
+Suppose you have an input CSV file named `hashed_passwords.csv` with the following content:
+
+```
+user1,5e884898da28047151d0e56f8dc6292773603d0d1b68ef95e8e9f52fe1e0b3b9
+user2,6a09e667bb4bbbaa118e2cf49f18c09123456ee8fbd87777d6b49f8f7c1e62b2
+```
+
+Each line contains a user ID and their hashed password.
+
+To use the script, run the following:
+
+```python
+hash_password_hack('hashed_passwords.csv', 'cracked_passwords.csv')
+```
+
+After executing the script, the output file `cracked_passwords.csv` will contain the user IDs along with their cracked passwords (based on precomputed hashes):
+
+```
+user1,1234
+user2,5678
+```
+
+In this example, the hashes in the input file are cracked and replaced with their corresponding numeric passwords in the output file.
+
 ### Summary
 
 This Python script is designed to crack simple numeric passwords that have been hashed using SHA-256. It does so by first precomputing the hashes for all numbers between `0000` and `9999`. It then reads an input CSV file containing user IDs and their hashed passwords. By comparing the hashed passwords with the precomputed ones, the script matches them and cracks the passwords. Finally, it writes the user IDs along with their corresponding cracked passwords into an output CSV file.
----
+
+
 
 
